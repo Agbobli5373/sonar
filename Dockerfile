@@ -1,8 +1,7 @@
-# Use the official SonarQube image from Docker Hub
-FROM sonarqube:latest
+FROM sonarqube:9.9.0-community
 
-# Expose the necessary ports
+# Copy the custom SonarQube configuration
+COPY sonar-project.properties /opt/sonarqube/conf/sonar-project.properties
+
+# Expose the default SonarQube port
 EXPOSE 9000
-
-# Set the entrypoint to start SonarQube
-ENTRYPOINT ["./bin/run.sh"]
